@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Times+New+Roman');
+@import "tailwindcss";
+
+@theme {
+  --color-yellow: #a16207;
+  --color-amber: #c28f64;
+  --color-amberHover: #B6865E;
+  --color-darkCyan: #0d3d3c;
+
+  --color-primary: #C39065;
+  --color-primary-50: #fef2f3;
+  --color-primary-100: #fde3e5;
+  --color-primary-200: #fccccf;
+  --color-primary-300: #f9a8ad;
+  --color-primary-400: #f3767e;
+  --color-primary-500: #e94a54;
+  --color-primary-600: #d52d38;
+  --color-primary-700: #a92029;
+  --color-primary-800: #942028;
+  --color-primary-900: #7b2127;
+  --color-primary-950: #430c10;
+
+  --color-secondary: #BE8C48;
+  --color-warning: #FFF6E5;
+  --color-background: #FFF6E5;
+  --color-menu: #817382;
+
+  --color-danger: #fb1c32;
+  --color-info: #666c89;
+
+  --color-bg-top: #FFF7E7;
+  --color-bg-bottom: #FFF1DC;
+
+  --color-orange: #F95C19;
+  --color-footer: #BE8C48;
+  --color-yellow-light: #FFD078;
+  --color-green: #16A34A;
+  --color-gray: #9291A1;
+}
+
+.font-roman{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.navbar{
+top: 0;
+right: 0;
+left: 0;
+padding: 10px 0;
+}
+.navbar.is-sticky {
+    position: fixed;
+    z-index: 50;
+    top: -25px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    animation: slideDown 0.9s ease;
+}
+@media (max-width: 1024px) {
+    .navbar.is-sticky {
+        display: none;
+    }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
