@@ -70,3 +70,27 @@ padding: 10px 0;
     transform: translateY(0);
   }
 }
+
+/* ~/assets/css/navbar.css */
+.navbar {
+  @apply w-full top-0 left-0 right-0 py-2 transition-all duration-300 relative bg-transparent;
+}
+
+.navbar.is-sticky {
+  @apply fixed z-50 -top-6 bg-white/80 lg:block hidden;
+  animation: slideDown 0.9s ease forwards;
+}
+
+/* Custom slideDown animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  @apply fixed right-0;
+}

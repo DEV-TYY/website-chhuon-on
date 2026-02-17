@@ -1,35 +1,82 @@
-<script setup>
-import { ref, computed } from 'vue'
+<script setup lang="ts">
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
 import logo from '~/assets/images/logo/logo.webp'
-import { modules } from '~/data/pages/home/data'
+import { modules, MenuItem, SubMenuItem } from '../data/pages/home/data'
 
-// Split menu into left and right
+// ----------------------------
+// MENU SPLIT
+// ----------------------------
 const leftMenu = computed(() => modules.slice(0, 4))
 const rightMenu = computed(() => modules.slice(4))
 
-// Track which submenu is open
-const activeSubMenu = ref(null)
-const toggleSubMenu = (name) => {
+// ----------------------------
+// SUBMENU TOGGLE
+// ----------------------------
+const activeSubMenu = ref<string | null>(null)
+const toggleSubMenu = (name: string) => {
   activeSubMenu.value = activeSubMenu.value === name ? null : name
 }
 
-// Get current route
+// ----------------------------
+// ROUTE
+// ----------------------------
 const route = useRoute()
-
-// Check if top-level link is active
-const isActive = (path) => route.path === path
-
-// Check if dropdown or submenu should be active
-const isChildActive = (children) => {
+const isActive = (path?: string) => path === route.path
+const isChildActive = (children: MenuItem[] = []) => {
   return children.some(child => {
     if (child.url && child.url === route.path) return true
-    if (child.subMenu) {
-      return child.subMenu.some(sub => sub.url === route.path)
-    }
+    if (child.subMenu)
+      return child.subMenu.some((sub: SubMenuItem) => sub.url === route.path)
     return false
   })
 }
+
+// ----------------------------
+// SCROLL TO TOP FUNCTION
+// ----------------------------
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
+// ----------------------------
+// HANDLE MENU CLICK
+// ----------------------------
+const handleMenuClick = (path?: string) => {
+  if (!path) return
+  if (path === route.path) {
+    // Same page: scroll to top
+    scrollToTop()
+  } else {
+    // Different page: navigate normally
+    window.location.href = path
+  }
+}
+
+// ----------------------------
+// STICKY NAVBAR
+// ----------------------------
+onMounted(() => {
+  const header = document.querySelector('.navbar')
+  const toggleClass = 'is-sticky'
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 150) {
+      header?.classList.add(toggleClass)
+    } else {
+      header?.classList.remove(toggleClass)
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll)
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('scroll', handleScroll)
+  })
+})
 </script>
 
 <template>
@@ -44,15 +91,16 @@ const isChildActive = (children) => {
             v-for="item in leftMenu"
             :key="item.name"
             :to="item.url"
-            class="uppercase font-roman  duration-200 lg:text-[17px] text-[13px] hover:text-amber"
+            class="uppercase font-roman duration-200 lg:text-[17px] text-[13px] hover:text-amber"
             :class="isActive(item.url) ? 'text-amber' : 'text-darkCyan'"
+            @click.prevent="handleMenuClick(item.url)"
           >
             {{ item.name }}
           </NuxtLink>
         </div>
 
         <!-- LOGO -->
-        <NuxtLink to="/" class="mx-auto flex items-center w-[32rem]">
+        <NuxtLink to="/" class="mx-auto flex items-center w-[32rem]" @click.prevent="scrollToTop()">
           <img :src="logo" class="w-full h-full lg:-translate-y-1" />
         </NuxtLink>
 
@@ -67,8 +115,9 @@ const isChildActive = (children) => {
             <NuxtLink
               v-if="item.url"
               :to="item.url"
-              class="uppercase font-roman  duration-200 lg:text-[17px] text-[13px] hover:text-amber"
+              class="uppercase font-roman duration-200 lg:text-[17px] text-[13px] hover:text-amber"
               :class="isActive(item.url) ? 'text-amber' : 'text-darkCyan'"
+              @click.prevent="handleMenuClick(item.url)"
             >
               {{ item.name }}
             </NuxtLink>
@@ -76,7 +125,7 @@ const isChildActive = (children) => {
             <!-- DROPDOWN -->
             <div
               v-else
-              class="uppercase font-roman  cursor-pointer"
+              class="uppercase font-roman cursor-pointer"
               :class="isChildActive(item.children) ? 'text-amber' : 'text-darkCyan'"
             >
               {{ item.name }}
@@ -105,7 +154,7 @@ const isChildActive = (children) => {
                       :key="sub.name"
                       :to="sub.url"
                       class="block py-2 text-amber whitespace-nowrap"
-                      :class="route.path === sub.url ? '' : ''"
+                      @click.prevent="handleMenuClick(sub.url)"
                     >
                       {{ sub.name }}
                     </NuxtLink>
