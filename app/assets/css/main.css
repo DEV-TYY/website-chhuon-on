@@ -38,15 +38,23 @@
   --color-gray: #9291A1;
 }
 
+.lg\:max-w-8xl {
+    max-width: 1462px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .font-roman{
   font-family: 'Times New Roman', Times, serif;
 }
 
+
+
 .navbar{
-top: 0;
-right: 0;
-left: 0;
-padding: 10px 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 10px 0;
 }
 .navbar.is-sticky {
     position: fixed;
@@ -93,4 +101,9 @@ padding: 10px 0;
 
 .navbar {
   @apply fixed right-0;
+}
+
+[aria-label=hero-banner]::before {
+    @apply content-[''] absolute bottom-10 top-0 z-0 left-0 w-full h-full;
+    background: linear-gradient(0deg, #ffffff 40.10%, rgba(255, 255, 255, 0.753) 56.08%);
 }

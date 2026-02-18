@@ -18,7 +18,6 @@ export interface MenuItem {
 export const modules: MenuItem[] = [
   {
     name: 'GOLF COURSE',
-    url: 'javascript:void(0);',
     children: [
       { name: 'LAKE COURSE', url: '/golf-course/lake-course' },
       { name: 'NIGHT GOLF', url: '/golf-course/night-golf' },
@@ -88,7 +87,6 @@ interface CourseItem {
   button: string
 }
 
-import profileImage from "../../../assets/images/pages/home/profile.webp"
 // Courses Content
 export const coursesData: CourseItem[] = [
   {
@@ -100,7 +98,7 @@ export const coursesData: CourseItem[] = [
       { description: "Voted #1 Golf Course Architects in Asia for 7 years running, by Asian Golf (2011-2017)" },
       { description: "Ranked #4 Most Influential Golf Course Architects by Golf Inc" },
     ],
-    image: [profileImage],
+    image: ['/pages/home/profile.webp'],
     button: "LEARN MORE",
   },
 ];
@@ -110,22 +108,15 @@ interface Course {
     image: string[];
 }
 
-import lakeCourse1 from "../../../assets/images/pages/home/lake_course_01.webp"
-import lakeCourse2 from "../../../assets/images/pages/home/lake_course_02.webp"
-import lakeCourse3 from "../../../assets/images/pages/home/lake_course_03.webp"
-import lakeCourse4 from "../../../assets/images/pages/home/lake_course_04.webp"
 
 export const theCourse: Course = {
   image: [
-    lakeCourse1,
-    lakeCourse2,
-    lakeCourse3,
-    lakeCourse4
+    "/pages/home/lake_course_01.webp",
+    "/pages/home/lake_course_02.webp",
+    "/pages/home/lake_course_03.webp",
+    "/pages/home/lake_course_04.webp"
   ]
 }
-
-
-import memberShipBanner from '../../../assets/images/pages/home/member-ship-banner.webp'
 
 export interface PackageItem {
   title: string
@@ -142,18 +133,13 @@ export const packageContent: PackageItem[] = [
     subtitle: "AND RATES",
     description: `For more information about membership opportunities,<br>please contact (+855) 93 278 333 or email<br> operations@chhunon-golfresort.com`,
     button: "LEARN MORE",
-    image: memberShipBanner,
+    image: "/pages/home/member-ship-banner.webp",
     url: "mailto:info@chhunon-golfresort.com"
   }
 ]
 
 
 // ~/data/partners.ts
-import linkTwogolf from '../../../assets/images/pages/home/link-two-golf.webp'
-import golfGenius from '../../../assets/images/pages/home/golf-genius.webp'
-import iagto from '../../../assets/images/pages/home/iagto.webp'
-
-// Define the Partner type
 export interface Partner {
   title: string
   subtitle?: string
@@ -170,8 +156,8 @@ export const partners: Partner[] = [
     subtitle: "",
     description:
       "Through renowned partnerships, Chhun On Golf Resort gives its members and customers the<br> opportunity to live unforgettable experiences on our golf course.",
-    linkTwogolf: linkTwogolf,
-    golfGenius: golfGenius,
-    iagto: iagto
+    linkTwogolf: "/pages/home/link-two-golf.webp",
+    golfGenius: "/pages/home/golf-genius.webp",
+    iagto: "/pages/home/iagto.webp"
   }
 ]

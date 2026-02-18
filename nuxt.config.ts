@@ -2,6 +2,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
+
   app: {
   head: {
     link: [
@@ -10,9 +11,14 @@ export default defineNuxtConfig({
     ]
   }
   },
+  modules: ['@nuxt/image'],
+  image: {
+    dir: 'assets/images'   // ← tell it to look here
+  },
+
   devtools: { enabled: true },
   devtools: false,
-  css: ['./app/assets/css/main.css'],
+  css: ['~/assets/css/main.css'],
 
   vite: {
     plugins: [tailwindcss()],

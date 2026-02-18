@@ -13,7 +13,7 @@
 
     <!-- Image -->
     <div class="aspect-[1300/600] w-full flex-shrink-0 lg:w-full">
-      <img
+      <NuxtImg
         class="w-full object-cover h-full"
         :src="image"
         loading="lazy"

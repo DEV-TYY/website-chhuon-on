@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
-import logo from '~/assets/images/logo/logo.webp'
 import { modules, MenuItem, SubMenuItem } from '../data/pages/home/data'
 
 // ----------------------------
@@ -81,31 +80,80 @@ onMounted(() => {
 
 <template>
   <section id="navbar" class="w-full navbar top-0 z-30 absolute">
-    <nav class="flex items-center w-full px-5 mt-8 justify-center font-semibold">
+    <nav class="flex items-center w-full px-5 mt-8 justify-center">
 
       <ul class="items-center nav max-w-9xl hide-on-ipad-pro justify-center hidden lg:flex w-full gap-5 px-6">
 
         <!-- LEFT MENU -->
-        <div class="border-t justify-center items-center border-b h-16 2xl:gap-10 gap-8 w-full lg:flex border-darkCyan py-5">
-          <NuxtLink
+        <div class="border-t border-b h-16 2xl:gap-10 gap-8 w-full flex justify-center items-center border-darkCyan py-5">
+          <div
             v-for="item in leftMenu"
             :key="item.name"
-            :to="item.url"
-            class="uppercase font-roman duration-200 lg:text-[17px] text-[13px] hover:text-amber"
-            :class="isActive(item.url) ? 'text-amber' : 'text-darkCyan'"
-            @click.prevent="handleMenuClick(item.url)"
+            class="relative group"
           >
-            {{ item.name }}
-          </NuxtLink>
+            <!-- NORMAL LINK -->
+            <NuxtLink
+              v-if="item.url"
+              :to="item.url"
+              class="uppercase font-roman duration-200 lg:text-[17px] text-[13px] hover:text-amber font-bold"
+              :class="isActive(item.url) ? 'text-amber' : 'text-darkCyan'"
+              @click.prevent="handleMenuClick(item.url)"
+            >
+              {{ item.name }}
+            </NuxtLink>
+
+            <!-- DROPDOWN -->
+            <div
+              v-else
+              class="uppercase font-roman cursor-pointer font-bold"
+              :class="isChildActive(item.children) ? 'text-amber' : 'text-darkCyan'"
+            >
+              {{ item.name }}
+
+              <!-- Dropdown Menu -->
+              <div class="absolute hidden text-sm font-roman group-hover:block bg-darkCyan rounded-md px-4 z-50 p-1.5">
+                <div
+                  v-for="child in item.children"
+                  :key="child.name"
+                  class="relative"
+                >
+                  <NuxtLink
+                      :key="child.name"
+                      :to="child.url"
+                      class="block py-2 text-amber whitespace-nowrap"
+                      @click.prevent="handleMenuClick(child.url)"
+                    >
+                    <span v-html="child.name"></span>
+                    </NuxtLink>
+
+                  <!-- SUB-SUB MENU -->
+                  <div
+                    v-if="activeSubMenu === child.name"
+                    class="absolute left-full top-0 bg-darkCyan rounded-md px-2 ml-2 whitespace-nowrap"
+                  >
+                    <NuxtLink
+                      v-for="sub in child.subMenu"
+                      :key="sub.name"
+                      :to="sub.url"
+                      class="block py-2 text-amber whitespace-nowrap"
+                      @click.prevent="handleMenuClick(sub.url)"
+                    >
+                      {{ sub.name }}
+                    </NuxtLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- LOGO -->
         <NuxtLink to="/" class="mx-auto flex items-center w-[32rem]" @click.prevent="scrollToTop()">
-          <img :src="logo" class="w-full h-full lg:-translate-y-1" />
+            <img src="/logo/logo.webp" class="w-full h-full lg:-translate-y-1" />
         </NuxtLink>
 
         <!-- RIGHT MENU -->
-        <div class="border-t border-b h-16 gap-8 w-full flex justify-center items-center border-darkCyan py-5">
+        <div class="border-t border-b h-16 2xl:gap-10 gap-8 w-full flex justify-center items-center border-darkCyan py-5  font-bold">
           <div
             v-for="item in rightMenu"
             :key="item.name"
@@ -128,10 +176,10 @@ onMounted(() => {
               class="uppercase font-roman cursor-pointer"
               :class="isChildActive(item.children) ? 'text-amber' : 'text-darkCyan'"
             >
-              {{ item.name }}
+              <span v-html="item.name"></span>
 
               <!-- Dropdown Menu -->
-              <div class="absolute hidden text-sm font-roman group-hover:block bg-darkCyan rounded-md px-2 z-50">
+              <div class="absolute hidden text-sm font-roman group-hover:block bg-darkCyan rounded-md px-4 z-50">
                 <div
                   v-for="child in item.children"
                   :key="child.name"
@@ -156,7 +204,7 @@ onMounted(() => {
                       class="block py-2 text-amber whitespace-nowrap"
                       @click.prevent="handleMenuClick(sub.url)"
                     >
-                      {{ sub.name }}
+                    <span v-html="sub.name"></span>
                     </NuxtLink>
                   </div>
                 </div>

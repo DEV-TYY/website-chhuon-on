@@ -8,11 +8,9 @@
   import Course from '~/components/Course.vue';
   import GolfCourseGallery from '~/components/GolfCourseGallery.vue';
   import Membership from "../components/PackageOne.vue"
-  import OurPartner from '~/components/OurPartner..vue';
+  import OurPartner from '~/components/OurPartner.vue';
 
   import Banner from '~/components/Banner.vue';
-
-   import bannerImg from '../assets/images/banner/banner.webp';
 </script>
 
 <template>
@@ -35,7 +33,7 @@
         subTitle="GOLF EXPERIENCE IN PHNOM PENH"
         url="mailto:info@chhunon-golfresort.com"
         button="BOOK NOW"
-        :image="bannerImg"
+        image="banner/banner.webp"
     />
   </div>
 </template>

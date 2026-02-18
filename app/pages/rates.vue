@@ -1,9 +1,9 @@
-<script setup>
-    import bannerImg from "../assets/images/slide/gallery_5.webp"
+<script setup lang="ts">
     import Banner from "~/components/Banner.vue";
     import PackageOne from "~/components/PackageOne.vue";
     import { packages, allData } from "../data/pages/rates/data"
     import RateTable from "~/components/RateTable.vue";
+    import GolfClub from "~/components/GolfClub.vue";
 
 
     // Computed for filtering by type example
@@ -21,7 +21,7 @@
 <template>
    <div>
         <!-- Main Banner -->
-        <Banner :image="bannerImg" />
+        <Banner image="/slide/gallery_5.webp" />
 
         <!-- Package -->
         <PackageOne class="lg:py-14 py-8" :package="packages" />
@@ -67,6 +67,22 @@
         <div>
              <RateTable v-for="(table, idx) in juniorWeekendTables" :key="idx" :xdata="table" />
         </div>
+
+        <div>
+            <GolfClub 
+            title="GOLF CLUBS"
+            subtitle="RENTAL AVAILABLE"
+            description="Our rental clubs include top-of-the-line brands such as Srixon and XXIO, ensuring a high-quality golfing experience. We offer both men's and women's sets, as well as left-handed and right-handed options."
+            image="/banner/golf-rates.webp"/>
+        </div>
+
+        <Banner class="lg:py-14 py-8"
+            title="ENJOY YOUR ULTIMATED"
+            subTitle="GOLF EXPERIENCE IN PHNOM PENH"
+            url="mailto:info@chhunon-golfresort.com"
+            button="BOOK NOW"
+            image="banner/banner.webp"
+        />
    </div>
 </template>
 
