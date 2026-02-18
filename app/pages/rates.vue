@@ -5,7 +5,6 @@
     import { packages, allData } from "../data/pages/rates/data"
     import RateTable from "~/components/RateTable.vue";
 
-
     // Computed for filtering by type example
     const weekdayTables = computed(() => allData.value.filter(item => item.type === 'weekday'))
     const weekendTables = computed(() => allData.value.filter(item => item.type === 'weekend'))

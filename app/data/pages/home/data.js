@@ -71,6 +71,8 @@ export const welcomeData = [
     }
 ];
 
+
+
 import profileImg from "../../../assets/images/pages/home/profile.webp"
 // Course Content
 export const coursesData = [
