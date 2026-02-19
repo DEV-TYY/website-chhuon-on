@@ -24,7 +24,10 @@
 
    <GolfCourseGallery :course="theCourse"/>
 
-   <Membership class="lg:py-14 py-8" :package="packageContent"/>
+   <Membership class="lg:py-14 py-8"
+   :package="packageContent"
+   imgHight="lg:h-[25rem]"
+   btnStyle="bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan"/>
 
     <OurPartner class="lg:mb-14 mb-8" :partners="partners"/>
 

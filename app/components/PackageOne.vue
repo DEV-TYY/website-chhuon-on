@@ -3,6 +3,18 @@ defineProps({
   package: {
     type: Array,
     required: true
+  },
+  btnStyle: {
+    type: String,
+    default: ''
+  },
+  textColor: {
+    type: String,
+    default: 'text-amber'
+  },
+  imgHight: {
+    type: String,
+    default: ''
   }
 })
 </script>
@@ -21,7 +33,7 @@ defineProps({
             {{ item.title }}
           </h1>
 
-          <h2 class="text-amber uppercase 2xl:text-3xl font-roman text-2xl">
+          <h2 :class="textColor" class="2xl:text-3xl font-roman text-2xl">
             {{ item.subtitle }}
           </h2>
 
@@ -32,27 +44,29 @@ defineProps({
           <NuxtLink
             v-if="item.button && item.url?.startsWith('/')"
             :to="item.url"
-            class="text-slate-50 px-5 py-2 border bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan duration-150 uppercase lg:text-2xl md:text-2xl text-sm font-roman"
+            :class="btnStyle"
+            class="text-slate-50 px-5 py-2 border duration-150 uppercase lg:text-2xl md:text-2xl text-sm font-roman"
           >
             {{ item.button }}
           </NuxtLink>
 
-          <a
+          <NuxtLink
             v-else-if="item.button && item.url"
             :href="item.url"
+            :class="btnStyle"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-slate-50 px-5 py-2 border bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan duration-150 uppercase lg:text-2xl md:text-2xl text-sm font-roman"
+            class="text-slate-50 px-5 py-2 border duration-150 uppercase lg:text-2xl md:text-2xl text-sm font-roman"
           >
             {{ item.button }}
-          </a>
+          </NuxtLink>
         </div>
 
         <!-- Desktop image -->
         <div class="lg:block hidden">
           <div class="relative w-full z-30">
             <div class="w-full h-full flex-shrink-0 lg:w-full relative">
-              <div v-if="item.image" class="w-full lg:h-[25rem] aspect-[4/3]">
+              <div v-if="item.image" :class="imgHight" class="w-full aspect-[4/3]">
                 <NuxtImg :src="item.image" class="h-full w-full z-0" loading="lazy" alt="" />
               </div>
             </div>
@@ -68,7 +82,7 @@ defineProps({
             {{ item.title }}
           </h1>
 
-          <h2 class="text-amber uppercase 2xl:text-3xl font-roman text-2xl">
+          <h2 :class="textColor" class="2xl:text-3xl font-roman text-2xl">
             {{ item.subtitle }}
           </h2>
 
@@ -79,20 +93,22 @@ defineProps({
           <NuxtLink
             v-if="item.button && item.url?.startsWith('/')"
             :to="item.url"
-            class="text-slate-50 px-5 py-2 border bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan duration-150 uppercase lg:text-2xl md:text-2xl text-sm font-roman"
+            :class="btnStyle"
+            class="text-slate-50 px-5 py-2 border duration-150 uppercase lg:text-2xl md:text-2xl text-sm font-roman"
           >
             {{ item.button }}
           </NuxtLink>
 
-          <a
+          <NuxtLink
             v-else-if="item.button && item.url"
             :href="item.url"
+            :class="btnStyle"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-slate-50 px-5 py-2 border bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan duration-150 uppercase lg:text-2xl md:text-2xl text-sm font-roman"
+            class="text-slate-50 px-5 py-2 border duration-150 uppercase lg:text-2xl md:text-2xl text-sm font-roman"
           >
             {{ item.button }}
-          </a>
+          </NuxtLink>
         </div>
 
         <!-- Mobile image -->
