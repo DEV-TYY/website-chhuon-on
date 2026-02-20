@@ -69,7 +69,7 @@
                           index !== (activeIndex + 1) % props.course.image.length
               }"
             >
-              <img
+              <NuxtImg
                 :src="image"
                 class="object-cover h-full w-full"
                 :alt="`Course Image ${index + 1}`"
@@ -92,7 +92,7 @@
               :aria-current="activeIndex === key ? 'true' : 'false'"
               :aria-label="`Slide ${key + 1}`"
             >
-              <img
+              <NuxtImg
                 :src="thumbnail"
                 class="w-full h-full object-cover"
               />

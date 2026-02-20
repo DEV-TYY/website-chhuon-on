@@ -35,7 +35,7 @@
         <!-- Image -->
         <div class="relative w-full">
           <div class="spread-distance-box-shadow w-full lg:h-[28rem] lg:w-full relative overflow-hidden">
-            <img v-for="(image, imgIndex) in courseItem.image" :key="imgIndex"
+            <NuxtImg v-for="(image, imgIndex) in courseItem.image" :key="imgIndex"
                  :src="image"
                  class="object-cover h-full w-full"
                  loading="lazy"

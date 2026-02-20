@@ -44,7 +44,7 @@
             <!-- Link Two Golf logo -->
             <div class="w-full flex lg:px-5 lg:mb-10 mb-5 justify-center">
               <div class="w-2/3 px-0">
-                <img
+                <NuxtImg
                   class="lg:px-10 px-0 w-full h-full object-cover"
                   :src="partner.linkTwogolf"
                   alt=""
@@ -57,7 +57,7 @@
               <div class="w-2/3 px-0 gap-5 grid lg:grid-cols-2 grid-cols-2">
 
                 <div class="w-full h-full mb-5">
-                  <img
+                  <NuxtImg
                     class="w-full h-full object-cover"
                     :src="partner.golfGenius"
                     alt=""
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="w-full h-full">
-                  <img
+                  <NuxtImg
                     class="w-full h-full object-cover"
                     :src="partner.iagto"
                     alt=""

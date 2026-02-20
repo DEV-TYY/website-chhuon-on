@@ -1,5 +1,6 @@
 <script setup>
-    import Navbar from '~/components/Navbar.vue'
+     import Navbar from '~/components/Navbar.vue'
+     import Footer from './components/Footer.vue'
      import { useRoute } from 'vue-router'
 
   const route = useRoute()
@@ -34,6 +35,7 @@
 <template>
   <div>
     <Navbar />
-    <NuxtPage />
+        <NuxtPage />
+    <Footer/>
   </div>
 </template>

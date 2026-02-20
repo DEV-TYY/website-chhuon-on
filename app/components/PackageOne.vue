@@ -53,7 +53,7 @@ defineProps({
           <div class="relative w-full z-30">
             <div class="w-full h-full flex-shrink-0 lg:w-full relative">
               <div v-if="item.image" class="w-full lg:h-[25rem] aspect-[4/3]">
-                <img :src="item.image" class="h-full w-full z-0" loading="lazy" alt="" />
+                <NuxtImg :src="item.image" class="h-full w-full z-0" loading="lazy" alt="" />
               </div>
             </div>
             <div class="absolute -top-5 -left-3 -translate-x-2 bg-darkCyan w-40 h-16 z-[-1]"></div>
@@ -100,7 +100,7 @@ defineProps({
           <div class="relative w-full z-30">
             <div class="w-full h-full flex-shrink-0 lg:w-full relative">
               <div v-if="item.image" class="w-full lg:h-[25rem] aspect-[4/3]">
-                <img :src="item.image" class="h-full w-full z-0" loading="lazy" alt="" />
+                <NuxtImg :src="item.image" class="h-full w-full z-0" loading="lazy" alt="" />
               </div>
             </div>
             <div class="absolute -top-5 -left-3 -translate-x-2 bg-darkCyan w-40 h-16 z-[-1]"></div>
