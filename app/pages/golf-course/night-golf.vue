@@ -8,18 +8,23 @@
 
 <template>
   <div>
+
+    <!--- Main Banner -->
     <Banner class="lg:mb-14 mb-8"
         image="banner/night-golf.webp"
     />
 
+    <!--- Night Golf Rates Title -->
     <Membership class="lg:py-14 py-8"
-    :package="NightGolfData"
-    textColor="text-darkCyan"
-    shapeClass="-right-7"
-    btnStyle="bg-amber hover:border-amber hover:bg-transparent hover:text-amber"/>
+      :package="NightGolfData"
+      textColor="text-darkCyan"
+      shapeClass="-right-7"
+      btnStyle="bg-amber hover:border-amber hover:bg-transparent hover:text-amber"/>
 
-    <NightGolfRateTable :leftData="leftData" :rightData="rightData"/>
+      <!--- Night Golf Rates Table -->
+     <NightGolfRateTable :leftData="leftData" :rightData="rightData"/>
 
+     <!--- Dual Image Booking -->
     <DualImageBooking
       class="lg:py-14 py-8"
       image1="/banner/golf-night1.webp"

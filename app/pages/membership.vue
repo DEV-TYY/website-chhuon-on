@@ -33,7 +33,6 @@
             btnStyle="bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan"
             reverse="lg:order-1"
             />   
-
             
         <!-- CORPORATE Section -->
         <Membership class="lg:py-14 py-8"

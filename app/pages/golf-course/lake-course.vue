@@ -7,15 +7,16 @@
 
 <template>
   <div>
-    <Banner class="lg:mb-14 mb-8"
-        image="banner/banner.webp"
-    />
+    <!--- MAIN BANNER -->
+    <Banner class="lg:mb-14 mb-8" image="banner/banner.webp"/>
 
+    <!--- MEMBERSHIP -->
     <Membership class="lg:py-14 py-8" :package="packageContent"/>
 
-   <GolfCourseGallery :course="theCourse"/>
+    <!--- GALLERY -->
+    <GolfCourseGallery :course="theCourse"/>
 
-   <OurService class="lg:py-14 py-8" :service="service"/>
-
+    <!--- SERVICES -->
+    <OurService class="lg:py-14 py-8" :service="service"/>
   </div>
 </template>

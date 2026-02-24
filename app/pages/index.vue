@@ -15,22 +15,28 @@
 
 <template>
   <div>
-    <!-- Hero Video -->
+    <!--- Main Banner Video -->
     <Video :video="bannerVideo" />
 
+    <!--- Welcome Section -->
     <Welcome :data="welcomeData" />
 
+    <!--- Course Section -->
    <Course class="lg:py-14 py-8" :courses="coursesData" />
 
+   <!--- Golf Course Gallery -->
    <GolfCourseGallery :course="theCourse"/>
 
+   <!--- Membership Section -->
    <Membership class="lg:py-14 py-8"
     :package="packageContent"
     imgHight="lg:h-[25rem]"
     btnStyle="bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan"/>
 
+    <!--- Our Partner Section -->
     <OurPartner class="lg:mb-14 mb-8" :partners="partners"/>
 
+    <!--- Main Banner -->
     <Banner class="lg:mb-14 mb-8"
         title="ENJOY YOUR ULTIMATED"
         subTitle="GOLF EXPERIENCE IN PHNOM PENH"

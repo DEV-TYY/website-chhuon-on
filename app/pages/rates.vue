@@ -20,20 +20,23 @@
 
 <template>
    <div>
-        <!-- Main Banner -->
+        <!--- Main Banner -->
         <Banner image="/slide/gallery_5.webp" />
 
-        <!-- Package -->
+       <!--- Package Section -->
         <PackageOne class="lg:py-14 py-8" :package="packages" />
 
+        <!--- RATES TABLES -->     
         <div>
             <RateTable v-for="(table, idx) in weekdayTables" :key="idx" :xdata="table" />
         </div>
 
+        <!--- Weekend Rates -->
         <div>
             <RateTable v-for="(table, idx) in weekendTables" :key="idx" :xdata="table" />
         </div>
 
+        <!--- Night Golf Rates -->
         <div class="w-full flex justify-center">
             <div>
                 <h1 class="font-roman lg:text-5xl text-3xl mb-3 text-darkCyan">NIGHT GOLF RATES</h1>
@@ -43,14 +46,17 @@
             </div>
         </div>
 
+        <!--- Night Weekday Rates -->
         <div>
             <RateTable v-for="(table, idx) in nightWeekDayTables" :key="idx" :xdata="table" />
         </div>
 
+        <!--- Night Weekend Rates -->
         <div>
             <RateTable v-for="(table, idx) in nightWeekendTables" :key="idx" :xdata="table" />
         </div>
 
+        <!--- Junior Rates -->
         <div class="flex justify-center mt-10">
             <div>
                 <h1 class="font-roman lg:text-5xl text-3xl mb-3 text-darkCyan">JUNIOR GOLF RATES</h1>
@@ -60,14 +66,17 @@
             </div>
         </div>
 
+        <!--- Junior Weekday Rates -->
         <div>
             <RateTable v-for="(table, idx) in juniorWeekdayTables" :key="idx" :xdata="table" />
         </div>
     
+        <!--- Junior Weekend Rates -->
         <div>
              <RateTable v-for="(table, idx) in juniorWeekendTables" :key="idx" :xdata="table" />
         </div>
 
+        <!--- Golf Club Rental -->
         <div>
             <GolfClub 
             title="GOLF CLUBS"
@@ -76,6 +85,7 @@
             image="/banner/golf-rates.webp"/>
         </div>
 
+        <!--- CADDIE SERVICE -->
         <Banner class="lg:py-14 py-8"
             title="ENJOY YOUR ULTIMATED"
             subTitle="GOLF EXPERIENCE IN PHNOM PENH"
