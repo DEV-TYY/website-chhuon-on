@@ -11,10 +11,8 @@
 </script>
 
 <template>
-    <!-- Navbar -->
-    <Navbar/>
 
-  <div aria-label="hero-banner" class="flex justify-center items-center w-full h-screen overflow-hidden" :style="heroStyle" >
+  <div aria-label="hero-banner" class="flex justify-center items-center w-full h-screen" :style="heroStyle" >
     <div class="z-30 text-center mt-28">
 
       <!-- Title -->

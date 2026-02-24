@@ -105,7 +105,7 @@ onMounted(() => {
             <!-- DROPDOWN -->
             <div
               v-else
-              class="uppercase font-roman cursor-pointer font-bold"
+              class="uppercase font-roman cursor-pointer font-bold hover:text-amber duration-200"
               :class="isChildActive(item.children) ? 'text-amber' : 'text-darkCyan'"
             >
               {{ item.name }}
@@ -173,7 +173,7 @@ onMounted(() => {
             <!-- DROPDOWN -->
             <div
               v-else
-              class="uppercase font-roman cursor-pointer"
+              class="uppercase font-roman cursor-pointer hover:text-amber duration-200"
               :class="isChildActive(item.children) ? 'text-amber' : 'text-darkCyan'"
             >
               <span v-html="item.name"></span>

@@ -8,6 +8,10 @@ defineProps({
     type: String,
     default: ''
   },
+  shapeClass: {
+    type: String,
+    default: '-left-3'
+  },
   textColor: {
     type: String,
     default: 'text-amber'
@@ -15,18 +19,23 @@ defineProps({
   imgHight: {
     type: String,
     default: ''
-  }
+  },
+ reverse: {
+    type: String,
+    default: ''
+  },
+  
 })
 </script>
 
 <template>
   <div class="flex justify-center w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:max-w-8xl w-4/5">
+    <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-0 lg:max-w-8xl w-4/5">
 
       <template v-for="(item, index) in package" :key="index">
 
         <!-- Desktop text -->
-        <div class="lg:block hidden">
+        <div class="lg:block hidden" :class="item.reverse ? reverse : 'lg:order-2'">
           <div class="w-[140px] h-[3px] bg-amber mb-5"></div>
 
           <h1 class="text-amber uppercase 2xl:text-6xl lg:text-4xl font-roman text-3xl">
@@ -37,7 +46,7 @@ defineProps({
             {{ item.subtitle }}
           </h2>
 
-          <div class="lg:mt-7 mt-4 2xl:text-2xl text-lg text-justify text-darkCyan mx-auto lg:pr-12 pr-0 lg:mb-8 mb-0 font-roman">
+          <div class="lg:mt-7 mt-4 2xl:text-2xl text-lg text-justify text-darkCyan mx-auto lg:mb-8 mb-0 font-roman">
             <p v-html="item.description"></p>
           </div>
 
@@ -63,14 +72,17 @@ defineProps({
         </div>
 
         <!-- Desktop image -->
-        <div class="lg:block hidden">
+        <div class="lg:block hidden" :class="item.reverse ? 'lg:order-1' : 'lg:order-2'">
           <div class="relative w-full z-30">
             <div class="w-full h-full flex-shrink-0 lg:w-full relative">
               <div v-if="item.image" :class="imgHight" class="w-full aspect-[4/3]">
                 <NuxtImg :src="item.image" class="h-full w-full z-0" loading="lazy" alt="" />
               </div>
             </div>
-            <div class="absolute -top-5 -left-3 -translate-x-2 bg-darkCyan w-40 h-16 z-[-1]"></div>
+            <div 
+              :class="shapeClass" 
+              class="absolute -top-5 -translate-x-2 bg-darkCyan w-40 h-16 z-[-1]">
+            </div>
           </div>
         </div>
 
@@ -86,7 +98,7 @@ defineProps({
             {{ item.subtitle }}
           </h2>
 
-          <div class="lg:mt-7 mt-4 2xl:text-2xl text-lg text-darkCyan mx-auto lg:mb-8 mb-5 font-roman">
+          <div class="lg:mt-7 mt-4 2xl:text-2xl text-lg text-darkCyan mx-auto lg:mb-8 mb-5 font-roman text-justify">
             <p v-html="item.description"></p>
           </div>
 
@@ -119,7 +131,7 @@ defineProps({
                 <NuxtImg :src="item.image" class="h-full w-full z-0" loading="lazy" alt="" />
               </div>
             </div>
-            <div class="absolute -top-5 -left-3 -translate-x-2 bg-darkCyan w-40 h-16 z-[-1]"></div>
+            <div :class="shapeClass"  class="absolute -top-5 -translate-x-2 bg-darkCyan w-40 h-16 z-[-1]"></div>
           </div>
         </div>
 

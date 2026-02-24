@@ -7,7 +7,7 @@
   import Welcome from '~/components/Welcome.vue';
   import Course from '~/components/Course.vue';
   import GolfCourseGallery from '~/components/GolfCourseGallery.vue';
-  import Membership from "../components/PackageOne.vue"
+  import Membership from "../components/Membership.vue"
   import OurPartner from '~/components/OurPartner.vue';
 
   import Banner from '~/components/Banner.vue';
@@ -25,9 +25,9 @@
    <GolfCourseGallery :course="theCourse"/>
 
    <Membership class="lg:py-14 py-8"
-   :package="packageContent"
-   imgHight="lg:h-[25rem]"
-   btnStyle="bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan"/>
+    :package="packageContent"
+    imgHight="lg:h-[25rem]"
+    btnStyle="bg-darkCyan hover:border-darkCyan hover:bg-transparent hover:text-darkCyan"/>
 
     <OurPartner class="lg:mb-14 mb-8" :partners="partners"/>
 

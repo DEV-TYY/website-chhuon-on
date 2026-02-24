@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import Banner from "~/components/Banner.vue";
-    import PackageOne from "~/components/PackageOne.vue";
+    import PackageOne from "~/components/Membership.vue";
     import { packages, allData } from "../data/pages/rates/data"
     import RateTable from "~/components/RateTable.vue";
     import GolfClub from "~/components/GolfClub.vue";
