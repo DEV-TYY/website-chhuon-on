@@ -8,6 +8,7 @@ import { modules, MenuItem, SubMenuItem } from '../data/pages/home/data'
 // ----------------------------
 const leftMenu = computed(() => modules.slice(0, 4))
 const rightMenu = computed(() => modules.slice(4))
+const router = useRouter()
 
 // ----------------------------
 // SUBMENU TOGGLE
@@ -44,14 +45,14 @@ const scrollToTop = () => {
 // ----------------------------
 // HANDLE MENU CLICK
 // ----------------------------
-const handleMenuClick = (path?: string) => {
+const handleMenuClick = async (path?: string) => {
   if (!path) return
   if (path === route.path) {
     // Same page: scroll to top
     scrollToTop()
   } else {
     // Different page: navigate normally
-    window.location.href = path
+    await router.push(path)
   }
 }
 

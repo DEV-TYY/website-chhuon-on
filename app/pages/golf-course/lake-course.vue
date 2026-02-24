@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import Banner from '~/components/Banner.vue';
   import { packageContent, theCourse, service } from '../../data/pages/lake-course/data';
-  import Membership from "../../components/PackageOne.vue"
+  import Membership from "../../components/Membership.vue"
   import OurService from '~/components/OurService.vue';
 </script>
 
