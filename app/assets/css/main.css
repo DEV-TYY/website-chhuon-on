@@ -48,8 +48,6 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
-
-
 .navbar{
   top: 0;
   right: 0;
@@ -106,13 +104,6 @@
 [aria-label=hero-banner]::before {
     @apply content-[''] absolute bottom-10 top-0 z-0 left-0 w-full h-full;
     background: linear-gradient(0deg, #ffffff 40.10%, rgba(255, 255, 255, 0.753) 56.08%);
-}
-
-.submenu {
-    position: relative;
-    padding: 3px;
-    padding-top: 10px;
-    background-color: #0d3d3c;
 }
 
 .submenu li {
