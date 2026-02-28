@@ -11,10 +11,8 @@
 </script>
 
 <template>
-    <!-- Navbar -->
-    <Navbar/>
 
-  <div aria-label="hero-banner" class="flex justify-center items-center w-full h-screen overflow-hidden" :style="heroStyle" >
+  <div aria-label="hero-banner" class="flex justify-center items-center w-full h-screen" :style="heroStyle" >
     <div class="z-30 text-center mt-28">
 
       <!-- Title -->
@@ -23,10 +21,12 @@
           <div class="bg-darkCyan w-24 h-[2px]"></div>
         </div>
 
+        <!-- Message -->
         <h1 class="text-3xl font-bold text-darkCyan font-roman">
           COMING SOON
         </h1>
 
+        <!-- Description -->
         <p class="text-darkCyan lg:text-2xl text-lg uppercase font-roman py-4">
           Our golf academy page is currently undergoing scheduled
           maintenance.<br />

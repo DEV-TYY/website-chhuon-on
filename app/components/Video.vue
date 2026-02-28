@@ -13,10 +13,10 @@
 </template>
 
 <script setup>
-defineProps({
-  video: {
-    type: String,
-    required: true
-  }
-})
+  defineProps({
+    video: {
+      type: String,
+      required: true
+    }
+  })
 </script>

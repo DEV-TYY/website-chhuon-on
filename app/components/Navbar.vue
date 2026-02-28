@@ -1,86 +1,87 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { useRoute } from 'vue-router'
-import { modules, MenuItem, SubMenuItem } from '../data/pages/home/data'
+  import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+  import { useRoute } from 'vue-router'
+  import { modules, MenuItem, SubMenuItem } from '../data/pages/home/data'
 
-// ----------------------------
-// MENU SPLIT
-// ----------------------------
-const leftMenu = computed(() => modules.slice(0, 4))
-const rightMenu = computed(() => modules.slice(4))
+  // ----------------------------
+  // MENU SPLIT
+  // ----------------------------
+  const leftMenu = computed(() => modules.slice(0, 4))
+  const rightMenu = computed(() => modules.slice(4))
+  const router = useRouter()
 
-// ----------------------------
-// SUBMENU TOGGLE
-// ----------------------------
-const activeSubMenu = ref<string | null>(null)
-const toggleSubMenu = (name: string) => {
-  activeSubMenu.value = activeSubMenu.value === name ? null : name
-}
-
-// ----------------------------
-// ROUTE
-// ----------------------------
-const route = useRoute()
-const isActive = (path?: string) => path === route.path
-const isChildActive = (children: MenuItem[] = []) => {
-  return children.some(child => {
-    if (child.url && child.url === route.path) return true
-    if (child.subMenu)
-      return child.subMenu.some((sub: SubMenuItem) => sub.url === route.path)
-    return false
-  })
-}
-
-// ----------------------------
-// SCROLL TO TOP FUNCTION
-// ----------------------------
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-
-// ----------------------------
-// HANDLE MENU CLICK
-// ----------------------------
-const handleMenuClick = (path?: string) => {
-  if (!path) return
-  if (path === route.path) {
-    // Same page: scroll to top
-    scrollToTop()
-  } else {
-    // Different page: navigate normally
-    window.location.href = path
+  // ----------------------------
+  // SUBMENU TOGGLE
+  // ----------------------------
+  const activeSubMenu = ref<string | null>(null)
+  const toggleSubMenu = (name: string) => {
+    activeSubMenu.value = activeSubMenu.value === name ? null : name
   }
-}
 
-// ----------------------------
-// STICKY NAVBAR
-// ----------------------------
-onMounted(() => {
-  const header = document.querySelector('.navbar')
-  const toggleClass = 'is-sticky'
+  // ----------------------------
+  // ROUTE
+  // ----------------------------
+  const route = useRoute()
+  const isActive = (path?: string) => path === route.path
+  const isChildActive = (children: MenuItem[] = []) => {
+    return children.some(child => {
+      if (child.url && child.url === route.path) return true
+      if (child.subMenu)
+        return child.subMenu.some((sub: SubMenuItem) => sub.url === route.path)
+      return false
+    })
+  }
 
-  const handleScroll = () => {
-    if (window.pageYOffset > 150) {
-      header?.classList.add(toggleClass)
+  // ----------------------------
+  // SCROLL TO TOP FUNCTION
+  // ----------------------------
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  // ----------------------------
+  // HANDLE MENU CLICK
+  // ----------------------------
+  const handleMenuClick = async (path?: string) => {
+    if (!path) return
+    if (path === route.path) {
+      // Same page: scroll to top
+      scrollToTop()
     } else {
-      header?.classList.remove(toggleClass)
+      // Different page: navigate normally
+      await router.push(path)
     }
   }
 
-  window.addEventListener('scroll', handleScroll)
+  // ----------------------------
+  // STICKY NAVBAR
+  // ----------------------------
+  onMounted(() => {
+    const header = document.querySelector('.navbar')
+    const toggleClass = 'is-sticky'
 
-  onBeforeUnmount(() => {
-    window.removeEventListener('scroll', handleScroll)
+    const handleScroll = () => {
+      if (window.pageYOffset > 150) {
+        header?.classList.add(toggleClass)
+      } else {
+        header?.classList.remove(toggleClass)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('scroll', handleScroll)
+    })
   })
-})
 </script>
 
 <template>
   <section id="navbar" class="w-full navbar top-0 z-30 absolute">
-    <nav class="flex items-center w-full px-5 mt-8 justify-center">
+    <nav class="flex items-center w-full px-10 mt-10 justify-center">
 
       <ul class="items-center nav max-w-9xl hide-on-ipad-pro justify-center hidden lg:flex w-full gap-5 px-6">
 
@@ -105,7 +106,7 @@ onMounted(() => {
             <!-- DROPDOWN -->
             <div
               v-else
-              class="uppercase font-roman cursor-pointer font-bold"
+              class="uppercase font-roman cursor-pointer font-bold hover:text-amber duration-200"
               :class="isChildActive(item.children) ? 'text-amber' : 'text-darkCyan'"
             >
               {{ item.name }}
@@ -148,7 +149,7 @@ onMounted(() => {
         </div>
 
         <!-- LOGO -->
-        <NuxtLink to="/" class="mx-auto flex items-center w-[32rem]" @click.prevent="scrollToTop()">
+        <NuxtLink to="/" class="mx-auto flex items-center h-full w-[32rem]" @click.prevent="scrollToTop()">
             <img src="/logo/logo.webp" class="w-full h-full lg:-translate-y-1" />
         </NuxtLink>
 
@@ -173,7 +174,7 @@ onMounted(() => {
             <!-- DROPDOWN -->
             <div
               v-else
-              class="uppercase font-roman cursor-pointer"
+              class="uppercase font-roman cursor-pointer hover:text-amber duration-200"
               :class="isChildActive(item.children) ? 'text-amber' : 'text-darkCyan'"
             >
               <span v-html="item.name"></span>
