@@ -196,7 +196,7 @@
                   <!-- SUB-SUB MENU -->
                   <div
                     v-if="activeSubMenu === child.name"
-                    class="absolute left-full top-0 bg-darkCyan rounded-md px-2 ml-2 whitespace-nowrap"
+                    class="absolute translate-x-3 left-full top-0 bg-darkCyan rounded-md px-2 ml-2 whitespace-nowrap"
                   >
                     <NuxtLink
                       v-for="sub in child.subMenu"
