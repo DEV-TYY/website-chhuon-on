@@ -41,9 +41,9 @@ export const modules: MenuItem[] = [
       {
         name: 'EVENTS',
         subMenu: [
-          { name: 'THE FIRST LADIES GOLF SOCIAL', url: '/news&events/events/the-first-ladies-golf-social' },
-          { name: 'THE 8<sup class="lowercase">th</sup> SAMDECH HUN SEN TOURNAMENT', url: '/news&events/events/tournament' },
-          { name: 'THE CITY GOLF LOYALTY CHAMPIONSHIP', url: '/news&events/events/championship' },
+          { name: 'THE FIRST LADIES GOLF SOCIAL', url: '/news-events/events/the-first-ladies-golf-social' },
+          { name: 'THE 8<sup class="lowercase">th</sup> SAMDECH HUN SEN TOURNAMENT', url: '/news-events/events/the-8th-samdech-hun-sen-tournament' },
+          { name: 'THE CITY GOLF LOYALTY CHAMPIONSHIP', url: '/news-events/events/championship' },
         ],
       },
       { name: 'HOLE IN ONE RECORD', url: '/news&events/hole-in-one-record' },
