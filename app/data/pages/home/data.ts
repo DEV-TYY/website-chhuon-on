@@ -33,17 +33,17 @@ export const modules: MenuItem[] = [
       {
         name: 'NEWS',
         subMenu: [
-          { name: 'SOFT OPENING LAKE COURSE 18 HOLES', url: '/news&events/news/soft-opening-lake-course-18-holes' },
-          { name: 'INTERNATIONAL TRAVEL: NEW KID ON<br> THE BLOCK - CHHUN ON', url: '/news&events/international-travel' },
-          { name: 'CHHUN ON GOLF RESORT LAUNCHES EXCITING<br> NIGHT GOLF EXPERIENCE UNDER THE STARS', url: '/news&events/chhun-on-golf-resort-launches-exciting-night-golf-experience-under-the-stars' },
+          { name: 'SOFT OPENING LAKE COURSE 18 HOLES', url: '/news-events/news/soft-opening-lake-course-18-holes' },
+          { name: 'INTERNATIONAL TRAVEL: NEW KID ON<br> THE BLOCK - CHHUN ON', url: '/news-events/news/international-travel' },
+          { name: 'CHHUN ON GOLF RESORT LAUNCHES EXCITING<br> NIGHT GOLF EXPERIENCE UNDER THE STARS', url: '/news-events/news/chhun-on-golf-resort-launches-exciting-night-golf-experience-under-the-stars' },
         ],
       },
       {
         name: 'EVENTS',
         subMenu: [
-          { name: 'THE FIRST LADIES GOLF SOCIAL', url: '/news&events/events/the-first-ladies-golf-social' },
-          { name: 'THE 8th SAMDECH HUN SEN TOURNAMENT', url: '/news&events/events/tournament' },
-          { name: 'THE CITY GOLF LOYALTY CHAMPIONSHIP', url: '/news&events/events/championship' },
+          { name: 'THE FIRST LADIES GOLF SOCIAL', url: '/news-events/events/the-first-ladies-golf-social' },
+          { name: 'THE 8<sup class="lowercase">th</sup> SAMDECH HUN SEN TOURNAMENT', url: '/news-events/events/the-8th-samdech-hun-sen-tournament' },
+          { name: 'THE CITY GOLF LOYALTY CHAMPIONSHIP', url: '/news-events/events/the-city-golf-loyalty-championship' },
         ],
       },
       { name: 'HOLE IN ONE RECORD', url: '/news&events/hole-in-one-record' },

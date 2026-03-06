@@ -47,11 +47,13 @@
   // ----------------------------
   const handleMenuClick = async (path?: string) => {
     if (!path) return
+
+    // close submenu
+    activeSubMenu.value = null
+
     if (path === route.path) {
-      // Same page: scroll to top
       scrollToTop()
     } else {
-      // Different page: navigate normally
       await router.push(path)
     }
   }
@@ -196,7 +198,7 @@
                   <!-- SUB-SUB MENU -->
                   <div
                     v-if="activeSubMenu === child.name"
-                    class="absolute left-full top-0 bg-darkCyan rounded-md px-2 ml-2 whitespace-nowrap"
+                    class="absolute translate-x-3 left-full top-0 bg-darkCyan rounded-md px-2 ml-2 whitespace-nowrap"
                   >
                     <NuxtLink
                       v-for="sub in child.subMenu"
