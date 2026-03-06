@@ -231,3 +231,46 @@ export const championshipContent = ref<ChampionshipItem[]>([
     image: '/banner/loyalty-banner.webp'
   }
 ])
+
+
+interface RegistrationItem {
+  title: string
+  url: string
+  image: string[]
+}
+
+// Sample service data (you can import this from a data file)
+export const registrationData = ref<RegistrationItem[]>([
+  {
+    title: "REGISTRATION",
+    url: "#",
+    image: [
+      "/registration/registration-image-one.webp",
+      "/registration/registration-image-two.webp",
+      "/registration/registration-image-three.webp",
+      "/registration/registration-image-four.webp",
+      "/registration/registration-image-five.webp",
+      "/registration/registration-image-six.webp"
+    ],
+  },
+  {
+    title: "ON COURSE ACTIVITIES",
+    url: "#",
+    image: [
+      "/slide/on-course-activities-02.webp",
+      "/slide/on-course-activities-01.webp",
+      "/slide/on-course-activities-03.webp",
+      "/slide/on-course-activities-04.webp",
+    ],
+  },
+  {
+    title: "AWARD CEREMONY",
+    url: "#",
+    image: [
+      "/slide/awards-ceremony-01.webp",
+      "/slide/awards-ceremony-02.webp",
+      "/slide/awards-ceremony-03.webp",
+      "/slide/awards-ceremony-04.webp",
+    ],
+  },
+])
