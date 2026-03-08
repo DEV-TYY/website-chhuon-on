@@ -21,7 +21,7 @@
         <!--- GALLERY TITLE -->
         <Title class="w-full flex justify-cente" title="Night Golf"/>
         <!--- GALLERY SLIDES -->
-        <GallerySlide :slide="night" :picture="nightPicture" />
+        <GallerySlide :slide="night" :picture="nightPicture"/>
     </div>
   </div>
 </template>

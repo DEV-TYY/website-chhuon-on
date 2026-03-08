@@ -3,6 +3,17 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
 
+  runtimeConfig: {
+    // server-only
+    sendgridApiKey: process.env.SENDGRID_API_KEY,
+    emailAddress: process.env.EMAIL_ADDRESS,
+    emailAddressTo: process.env.EMAIL_ADDRESS_TO,
+
+    public: {
+      appName: process.env.APP_NAME,
+    },
+  },
+
   app: {
   head: {
     link: [

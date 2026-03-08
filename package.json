@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",
+    "@sendgrid/mail": "^8.1.6",
     "@tailwindcss/vite": "^4.1.18",
+    "nodemailer": "^8.0.1",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "nuxt": "^4.3.1",
     "swiper": "^12.1.2",
     "tailwindcss": "^4.1.18",

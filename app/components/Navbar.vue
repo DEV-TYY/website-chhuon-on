@@ -183,34 +183,42 @@
 
               <!-- Dropdown Menu -->
               <div class="absolute hidden text-sm font-roman group-hover:block bg-darkCyan rounded-md px-4 z-50">
-                <div
-                  v-for="child in item.children"
-                  :key="child.name"
-                  class="relative"
-                >
-                  <button
-                    class="text-amber py-2 block w-full text-left whitespace-nowrap"
-                    @click="toggleSubMenu(child.name)"
-                  >
-                    {{ child.name }}
-                  </button>
+                  <div v-for="child in item.children" :key="child.name" class="relative">
 
-                  <!-- SUB-SUB MENU -->
-                  <div
-                    v-if="activeSubMenu === child.name"
-                    class="absolute translate-x-3 left-full top-0 bg-darkCyan rounded-md px-2 ml-2 whitespace-nowrap"
-                  >
+                    <!-- DIRECT LINK -->
                     <NuxtLink
-                      v-for="sub in child.subMenu"
-                      :key="sub.name"
-                      :to="sub.url"
-                      class="block py-2 text-amber whitespace-nowrap"
-                      @click.prevent="handleMenuClick(sub.url)"
+                      v-if="child.url"
+                      :to="child.url"
+                      class="text-amber py-2 block whitespace-nowrap"
                     >
-                    <span v-html="sub.name"></span>
+                      {{ child.name }}
                     </NuxtLink>
+
+                    <!-- HAS SUBMENU -->
+                    <button
+                      v-else-if="child.subMenu && child.subMenu.length"
+                      class="text-amber py-2 block w-full text-left whitespace-nowrap"
+                      @click="toggleSubMenu(child.name)"
+                    >
+                      {{ child.name }}
+                    </button>
+
+                    <!-- SUBMENU -->
+                    <div
+                      v-if="child.subMenu && child.subMenu.length && activeSubMenu === child.name"
+                      class="absolute translate-x-3 left-full top-0 bg-darkCyan rounded-md px-2 ml-2 whitespace-nowrap"
+                    >
+                      <NuxtLink
+                        v-for="sub in child.subMenu"
+                        :key="sub.name"
+                        :to="sub.url"
+                        class="block py-2 text-amber whitespace-nowrap"
+                      >
+                        <span v-html="sub.name"></span>
+                      </NuxtLink>
+                    </div>
+
                   </div>
-                </div>
               </div>
             </div>
           </div>

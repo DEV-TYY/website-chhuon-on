@@ -371,3 +371,47 @@ export const eventsCarousel = ref<EventItem[]>([
     image: "/event/previous_events06.webp",
   }
 ])
+
+interface Hole5 {
+  image: string
+}
+
+//
+export const hole5Data: Hole5[] = [
+
+  { image: '/hole-in-one-record/mr-oor-ah-tat-hole5.jpg' },
+  { image: '/hole-in-one-record/neak-oknha-hun-to-hole5.jpg' },
+  { image: '/hole-in-one-record/mr-ly-kea-hole5.jpg' },
+  { image: '/hole-in-one-record/mr-ko-jong-su-hole5.jpg' },
+  { image: '/hole-in-one-record/mr-lee-thean-lonh-hole5.jpg' },
+  { image: '/hole-in-one-record/mr-kaing-bunthy-hole5.jpg' },
+  { image: '/hole-in-one-record/mrs-tomie-fujikura-hole5.jpg' },
+  { image: '/hole-in-one-record/mr-jeong-han-chul-hole5.jpg' },
+
+]
+
+
+interface Hole8 {
+  image: string
+}
+
+export const hole8Data: Hole8[] = [
+  { image: '/hole-in-one-record/hole8-3.jpg'},
+  { image: '/hole-in-one-record/hole8-6.jpg' },
+  { image: '/hole-in-one-record/hole8-1.jpg' },
+  { image: '/hole-in-one-record/hole8-5.jpg' },
+  { image: '/hole-in-one-record/hole8-4.jpg '}
+]
+
+
+interface Hole13 {
+  image: string
+}
+
+export const hole13Data: Hole13[] = [
+  { image: '/hole-in-one-record/hole13-4.jpg'},
+  { image: '/hole-in-one-record/hole13-5.jpg'},
+  { image: '/hole-in-one-record/hole13-2.jpg'},
+  { image: '/hole-in-one-record/hole13-1.jpg'},
+  { image: '/hole-in-one-record/hole13-3.jpg'},
+]

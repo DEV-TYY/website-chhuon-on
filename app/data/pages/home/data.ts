@@ -46,7 +46,7 @@ export const modules: MenuItem[] = [
           { name: 'THE CITY GOLF LOYALTY CHAMPIONSHIP', url: '/news-events/events/the-city-golf-loyalty-championship' },
         ],
       },
-      { name: 'HOLE IN ONE RECORD', url: '/news&events/hole-in-one-record' },
+      { name: 'HOLE IN ONE RECORD', url: '/news-events/hole-in-one-record', subMenu: [] },
     ],
   },
   { name: 'ABOUT US', url: '/about-us', children: [] },

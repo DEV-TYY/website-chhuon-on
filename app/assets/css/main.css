@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Times+New+Roman');
 @import "tailwindcss";
 
+
+
+
 @theme {
   --color-yellow: #a16207;
   --color-amber: #c28f64;
@@ -106,6 +109,11 @@
     background: linear-gradient(0deg, #ffffff 40.10%, rgba(255, 255, 255, 0.753) 56.08%);
 }
 
+[aria-label=about-us]::before {
+    @apply content-[''] absolute bottom-10 top-0 z-0 left-0 w-full h-full;
+    background: linear-gradient(0deg, #ffffff 56.10%, rgba(255, 255, 255, 0.753) 80.08%);
+}
+
 .submenu li {
     list-style: none;
 }
@@ -122,73 +130,152 @@
     background-color: #0d3d3c;
 }
 
-
- .wrapper .carousel{
+ .card-wrapper .card-carousel{
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: calc((100% / 3) - 25px);
+        grid-auto-columns: calc((100% / 4) - 25px);
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 30px;
         scroll-behavior: smooth;
         scrollbar-width: none;
     }
-    .carousel::-webkit-scrollbar {
+    .card-carousel::-webkit-scrollbar {
        display: none;
     }
-    .carousel.no-transition {
+    .card-carousel.no-transition {
        scroll-behavior: auto;
     }
-    .carousel.dragging {
-        scroll-snap-type: none;
-        scroll-behavior: auto;
-    }
-    .carousel.dragging .card {
+    .card-carousel.dragging .card {
         cursor: grab;
         user-select: none;
     }
 
     @media screen and (max-width: 900px) {
-    .wrapper .carousel {
-        grid-auto-columns: calc((100% / 1) - 12px);
-    }
+      .card-wrapper .card-carousel {
+          grid-auto-columns: calc((100% / 2) - 12px);
+      }
     }
     @media screen and (max-width: 600px) {
-    .wrapper .carousel {
-        grid-auto-columns: calc((100% / 1) - 3px);
-        gap: 30px;
-        padding: 45px;
-        padding-right: 27px;
-    }
+      .card-wrapper .card-carousel {
+          grid-auto-columns: calc((100% / 2) - 3px);
+          gap: 30px;
+          padding: 45px;
+          padding-right: 27px;
+      }
     }
 
 
-    .carousel {
-              display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: calc((100% / 3) - 25px);
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 30px;
-      scrollbar-width: none;
-    }
+.carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 25px);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 30px;
+    scrollbar-width: none;
+}
+
 .carousel::-webkit-scrollbar { display: none; }
 
 .carousel.dragging { scroll-behavior: auto; }
 
 .card { scroll-snap-align: start; }
 
-
-    @media screen and (max-width: 900px) {
- .carousel {
+@media screen and (max-width: 900px) {
+  .carousel {
         grid-auto-columns: calc((100% / 1) - 12px);
     }
-    }
-    @media screen and (max-width: 600px) {
-     .carousel {
-        grid-auto-columns: calc((100% / 1) - 3px);
-        gap: 30px;
-        padding: 45px;
-        padding-right: 27px;
-    }
-    }
+}
+@media screen and (max-width: 600px) {
+  .carousel {
+      grid-auto-columns: calc((100% / 1) - 3px);
+      gap: 30px;
+      padding: 45px;
+      padding-right: 27px;
+  }
+}
+
+
+  /* The container must be positioned relative: */
+  .custom-select {
+    position: relative;
+    font-family: Arial;
+    color: #c28f64;
+  }
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element: */
+  }
+  /* Style the arrow inside the select element: */
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 15px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-color: #c28f64 transparent transparent transparent;
+  }
+  /* Point the arrow upwards when the select box is open (active): */
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #c28f64 transparent;
+    top: 10px;
+  }
+
+  /* style the items (options), including the selected item: */
+  .select-items div,.select-selected {
+    color: #c28f64;
+    padding: 0px 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: fit-content;
+    text-align: left;
+    text-wrap: nowrap;
+    overflow-y: auto;
+    margin-right: 3px;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+  }
+  /* Style items (options): */
+  .select-items {
+    position: absolute;
+    overflow-y: auto;
+    height: 480px;
+    overflow-x: hidden;
+    background-color: #0d3d3c;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+    padding-right: 2px;
+    width: 390px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  /* Hide the items when the select box is closed: */
+  .select-hide {
+    display: none;
+  }
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  .select-items::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+.select-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.select-items::-webkit-scrollbar-thumb {
+    background-color: #c28f64;
+    border-radius: 6px;
+    border: 3px solid #f1f1f1;
+}
+
+.select-items::-webkit-scrollbar-thumb:hover {
+    background: #a87551;
+}
