@@ -3,7 +3,8 @@ defineProps({
   modelValue: String,
   error: Boolean,
   label: String,
-  name: String
+  name: String,
+  id: String
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -15,6 +16,7 @@ const emit = defineEmits(['update:modelValue'])
 
   <input
     :name="name"
+    :id="id"
     :value="modelValue"
     @input="emit('update:modelValue', $event.target.value)"
     type="text"

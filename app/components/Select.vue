@@ -10,6 +10,10 @@ const props = defineProps({
   phoneName: {
     type: String,
     default: "phone"
+  },
+  error: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -246,22 +250,26 @@ const showCountries = ref(false)
         { name: "Zimbabwe", dialCode: "+263" }
     ];
 
-const selectedCountry = ref(countries[0])
+// Default selected country: Cambodia
+const selectedCountry = ref(countries.find(c => c.name === "Cambodia") || countries[0])
+
 
 function selectCountry(country:any) {
   selectedCountry.value = country
   showCountries.value = false
+  emit('update:code', country.dialCode)
 }
+
 </script>
 
 <template>
 
     <div class="lg:mb-8 mb-6">
         <label class="text-darkCyan text-2xl font-roman">PHONE NUMBER</label>
-        <div id="phoneContainer" class="flex items-center border rounded-md border-darkCyan relative">
+        <div id="phoneContainer" class="flex items-center border rounded-md relative" :class="error ? 'border-red-500' : 'border-darkCyan'">
             <!-- Country Select -->
             <div class="custom-select z-30 relative">
-                    <div class="select-selected cursor-pointer px-3 py-2" @click="showCountries = !showCountries">
+                    <div class="select-selected cursor-pointer w-3 px-3 py-2" @click="showCountries = !showCountries">
                         {{ selectedCountry.name }}
                     </div>
                     <div v-if="showCountries" class="select-items absolute bg-white border overflow-auto w-full">
@@ -271,15 +279,15 @@ function selectCountry(country:any) {
                 </div>
             </div>
 
-            <div class="flex gap-0">
+            <div class="flex gap-0 overflow-hidden">
                 <!-- Code -->
                 <div class="w-fit">
-                    <input :name="codeName" :value="selectedCountry.code" id="phoneArea" class="text-center bg-transparent w-16 py-2 font-roman placeholder:text-amber lg:text-lg text-sm text-amber focus:outline-none outline-none"readonly/>
+                    <input :name="codeName" :value="selectedCountry.dialCode" id="phoneArea" class="text-center bg-transparent w-16 py-2 font-roman placeholder:text-amber lg:text-lg text-sm text-amber focus:outline-none outline-none"readonly/>
                 </div>
                 <!-- Phone -->
-                <input   :name="phoneName"
-  :value="modelValue"
-  @input="emit('update:modelValue', $event.target.value)" id="phone" class="text-left w-fit px-2 bg-transparent py-2 font-roman placeholder:text-amber lg:text-lg text-sm text-amber focus:outline-none outline-none" required />
+                <input :name="phoneName" 
+                   :value="modelValue" 
+                   @input="$emit('update:modelValue', $event.target.value)" class="text-left w-fit px-2 bg-transparent py-2 font-roman placeholder:text-amber lg:text-lg text-sm text-amber focus:outline-none outline-none"/>
             </div>
         </div>
     </div>
