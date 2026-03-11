@@ -1,5 +1,6 @@
 <script setup>
     import Navbar from '~/components/Navbar.vue'
+    import CollapseSidebar from './components/CollapseSidebar.vue'
     import Footer from './components/Footer.vue'
     import { useRoute } from 'vue-router'
 
@@ -35,6 +36,8 @@
 <template>
   <div>
     <Navbar />
+    
+    <CollapseSidebar/>
         <NuxtPage />
     <Footer/>
   </div>

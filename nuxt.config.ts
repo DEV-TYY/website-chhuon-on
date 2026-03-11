@@ -10,10 +10,28 @@ export default defineNuxtConfig({
 
   app: {
   head: {
+     script: [
+        {
+          // Google Analytics 4 script
+          async: true,
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-EKXDFG7QT4',
+        },
+        {
+          // Inline GA initialization
+          children: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EKXDFG7QT4');
+          `,
+          type: 'text/javascript',
+        },
+      ],
     link: [
          { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' },
          { rel: 'icon', type: 'image/png', href: '/favicon-16x16.png' }
-    ]
+    ],
+
   }
   },
   modules: ['@nuxt/image'],
