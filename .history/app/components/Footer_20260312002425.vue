@@ -42,47 +42,42 @@
                         </a>
 
                         <ul class="z-10 hidden group-hover:block duration-300 absolute bg-darkCyan w-60 drop-shadow-lg rounded-lg transition-all ease-in-out">
-                             <li class="text-sm shadow-2xl rounded-md submenu">
-                                <!-- NEWS -->
-                                <div class="lg:flex blcock">
-                                    <NuxtLink to="/golf-course/lake-course"
-                                        class="block font-roman text-amber rounded-md transition-colors duration-200">
-                                        LAKE COURSE
-                                    </NuxtLink>
-                                </div>
 
-                                <div class="lg:flex blcock">
-                                    <NuxtLink to="/golf-course/night-golf"
-                                        class="block font-roman text-amber rounded-md transition-colors duration-200">
-                                        NIGHT GOLF
-                                    </NuxtLink>
-                                </div>
+                        <li class="text-sm shadow-2xl rounded-md submenu">
+
+                            <!-- NEWS -->
+                            <div class="lg:flex blcock">
+                                <a href="/news&events/hole-in-one-record"
+                                    class="block font-roman text-amber rounded-md transition-colors duration-200">
+                                    HOLE IN ONE RECORD
+                                </a>
+                            </div>
 
                             </li>
-                        </ul>
+                            </ul>
                     </li>
 
                     <li class="border-b-2 py-1 mb-1 border-amber hover:text-white duration-150">
-                        <NuxtLink class="lg:text-xl text-lg font-roman hover:text-white" to="/rates">RATES</NuxtLink>
+                        <a class="lg:text-xl text-lg font-roman hover:text-white" href="/rates">RATES</a>
                     </li>
 
                     <li class="border-b-2 py-1 mb-1 border-amber hover:text-white duration-150">
-                        <NuxtLink class="lg:text-xl text-lg font-roman hover:text-white" to="/membership">MEMBERSHIP</NuxtLink>
+                        <a class="lg:text-xl text-lg font-roman hover:text-white" href="/membership">MEMBERSHIP</a>
                     </li>
 
                     <li class="border-b-2 py-1 mb-1 border-amber hover:text-white duration-150">
-                        <NuxtLink class="lg:text-xl text-lg font-roman hover:text-white" to="/golf-academy">GOLF ACADEMY</NuxtLink>
+                        <a class="lg:text-xl text-lg font-roman hover:text-white" href="/golf-academy">GOLF ACADEMY</a>
                     </li>
 
                     <li class="border-b-2 py-1 mb-1 border-amber hover:text-white duration-150">
-                        <NuxtLink class="lg:text-xl text-lg font-roman hover:text-white" href="/gallery">GALLERY</NuxtLink>
+                        <a class="lg:text-xl text-lg font-roman hover:text-white" href="/gallery">GALLERY</a>
                     </li>
 
                     <!-- NEWS & EVENTS (same structure) -->
                     <li class="border-b-2 py-1 mb-1 border-amber hover:text-white duration-150 relative group">
 
                         <a class="lg:text-xl py-1 text-lg font-roman hover:text-white cursor-pointer">
-                           NEWS & EVENTS
+                        NEWS & EVENTS
                         </a>
 
                         <ul class="z-10 hidden group-hover:block duration-300 absolute bg-darkCyan w-60 drop-shadow-lg rounded-lg transition-all ease-in-out">
@@ -91,56 +86,64 @@
 
                             <!-- NEWS -->
                             <div class="lg:flex blcock">
-                                <a
-                                    @click="toggle('news')" class="block font-roman text-amber rounded-md transition-colors duration-200 cursor-pointer">
-                                    NEWS
+                            <a
+                                @click="toggle('news')"
+                                class="block font-roman text-amber rounded-md transition-colors duration-200 cursor-pointer"
+                            >
+                                NEWS
+                            </a>
+
+                            <div
+                                v-show="showNews"
+                                class="absolute drop-shadow-lg lg:mt-2 mt-16 py-2 lg:translate-x-24 shadow-2xl lg:-translate-y-5 lg:left-[87.5px] z-20 bg-darkCyan rounded-md duration-300"
+                            >
+                                <a href="/news-events/soft-opening-lake-course-18-holes"
+                                class="block whitespace-nowrap font-roman text-amber duration-200">
+                                SOFT OPENING LAKE COURSE 18 HOLES
                                 </a>
 
-                                <div
-                                    v-show="showNews"
-                                    class="absolute drop-shadow-lg lg:mt-2 mt-16 py-2 lg:translate-x-24 shadow-2xl lg:-translate-y-5 lg:left-[87.5px] z-20 bg-darkCyan rounded-md duration-300"
-                                >
-                                    <NuxtLink to="/news-events/soft-opening-lake-course-18-holes"
-                                        class="block whitespace-nowrap font-roman text-amber duration-200">
-                                        SOFT OPENING LAKE COURSE 18 HOLES
-                                    </NuxtLink>
-
-                                    <NuxtLink to="/news-events/international-travel"
-                                        class="px-1.5 block whitespace-nowrap font-roman text-amber duration-200">
-                                        INTERNATIONAL TRAVEL: NEW KID ON<br> THE BLOCK - CHHUN ON
-                                    </NuxtLink>
-                                </div>
+                                <a href="/news-events/international-travel"
+                                class="px-1.5 block whitespace-nowrap font-roman text-amber duration-200">
+                                INTERNATIONAL TRAVEL: NEW KID ON<br> THE BLOCK - CHHUN ON
+                                </a>
+                            </div>
                             </div>
 
                             <!-- EVENTS -->
                             <div class="relative">
-                                <div class="lg:flex blcock">
-                                    <a  @click="toggle('events')" class="block font-roman text-amber rounded-md transition-colors duration-200 cursor-pointer">
-                                        EVENTS
-                                    </a>
-
-                                    <div v-show="showEvents" class="absolute drop-shadow-lg lg:mt-2 mt-9 py-2 lg:translate-x-24 shadow-2xl lg:-translate-y-5 lg:left-[87.5px] z-20 bg-darkCyan rounded-md duration-300">
-                                        <NuxtLink to="/news-events/events/the-first-ladies-golf-social"
-                                            class="block whitespace-nowrap font-roman text-amber duration-200">
-                                            THE FIRST LADIES GOLF SOCIAL
-                                        </NuxtLink>
-
-                                        <NuxtLink to="/news-events/events/the-8th-samdech-hun-sen-tournament"
-                                            class="block whitespace-nowrap font-roman text-amber duration-200">
-                                            THE 8<sup>th</sup> SAMDECH HUN SEN TOURNAMENT
-                                        </NuxtLink>
-
-                                        <NuxtLink to="/news-events/events/the-city-golf-loyalty-championship"
-                                            class="block whitespace-nowrap font-roman text-amber duration-200">
-                                            THE CITY GOLF LOYALTY CHAMPIONSHIP
-                                        </NuxtLink>
-                                    </div>
-                                </div>
-
-                                <a to="/news&events/hole-in-one-record"
-                                    class="block font-roman text-amber rounded-md transition-colors duration-200">
-                                    HOLE IN ONE RECORD
+                            <div class="lg:flex blcock">
+                                <a
+                                @click="toggle('events')"
+                                class="block font-roman text-amber rounded-md transition-colors duration-200 cursor-pointer"
+                                >
+                                EVENTS
                                 </a>
+
+                                <div
+                                v-show="showEvents"
+                                class="absolute drop-shadow-lg lg:mt-2 mt-9 py-2 lg:translate-x-24 shadow-2xl lg:-translate-y-5 lg:left-[87.5px] z-20 bg-darkCyan rounded-md duration-300"
+                                >
+                                <a href="/news-events/events/the-first-ladies-golf-social"
+                                    class="block whitespace-nowrap font-roman text-amber duration-200">
+                                    THE FIRST LADIES GOLF SOCIAL
+                                </a>
+
+                                <a href="/news-events/events/the-8th-samdech-hun-sen-tournament"
+                                    class="block whitespace-nowrap font-roman text-amber duration-200">
+                                    THE 8<sup>th</sup> SAMDECH HUN SEN TOURNAMENT
+                                </a>
+
+                                <a href="/news-events/events/the-city-golf-loyalty-championship"
+                                    class="block whitespace-nowrap font-roman text-amber duration-200">
+                                    THE CITY GOLF LOYALTY CHAMPIONSHIP
+                                </a>
+                                </div>
+                            </div>
+
+                            <a href="/news&events/hole-in-one-record"
+                                class="block font-roman text-amber rounded-md transition-colors duration-200">
+                                HOLE IN ONE RECORD
+                            </a>
                             </div>
 
                             </li>

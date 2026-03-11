@@ -42,21 +42,21 @@
                         </a>
 
                         <ul class="z-10 hidden group-hover:block duration-300 absolute bg-darkCyan w-60 drop-shadow-lg rounded-lg transition-all ease-in-out">
-                             <li class="text-sm shadow-2xl rounded-md submenu">
-                                <!-- NEWS -->
-                                <div class="lg:flex blcock">
-                                    <NuxtLink to="/golf-course/lake-course"
-                                        class="block font-roman text-amber rounded-md transition-colors duration-200">
-                                        LAKE COURSE
-                                    </NuxtLink>
-                                </div>
 
-                                <div class="lg:flex blcock">
-                                    <NuxtLink to="/golf-course/night-golf"
-                                        class="block font-roman text-amber rounded-md transition-colors duration-200">
-                                        NIGHT GOLF
-                                    </NuxtLink>
-                                </div>
+                        <li class="text-sm shadow-2xl rounded-md submenu">
+
+                            <!-- NEWS -->
+                            <div class="lg:flex blcock">
+                                <NuxtLink to="/golf-course/lake-course"
+                                    class="block font-roman text-amber rounded-md transition-colors duration-200">
+                                    LAKE COURSE
+                                </NuxtLink>
+
+                                <NuxtLink to="/"
+                                    class="block font-roman text-amber rounded-md transition-colors duration-200">
+                                    LAKE COURSE
+                                </NuxtLink>
+                            </div>
 
                             </li>
                         </ul>

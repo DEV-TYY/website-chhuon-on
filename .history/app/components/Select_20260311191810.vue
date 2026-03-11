@@ -154,8 +154,13 @@
         // remove letters
         const numeric = input.value.replace(/[^\d]/g,"")
 
-        input.value = numeric
-        emit("update:modelValue", numeric)
+        // auto format using google lib
+        const formatter = new AsYouType(selectedCountry.value.iso)
+
+        const formatted = formatter.input(numeric)
+
+        input.value = formatted
+        emit("update:modelValue", formatted)
     }
 
     // Default selected country: Cambodia

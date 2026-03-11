@@ -42,6 +42,7 @@
                         </a>
 
                         <ul class="z-10 hidden group-hover:block duration-300 absolute bg-darkCyan w-60 drop-shadow-lg rounded-lg transition-all ease-in-out">
+
                              <li class="text-sm shadow-2xl rounded-md submenu">
                                 <!-- NEWS -->
                                 <div class="lg:flex blcock">

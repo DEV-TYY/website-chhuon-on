@@ -154,6 +154,10 @@
         // remove letters
         const numeric = input.value.replace(/[^\d]/g,"")
 
+
+
+        const formatted = formatter.input(numeric)
+
         input.value = numeric
         emit("update:modelValue", numeric)
     }

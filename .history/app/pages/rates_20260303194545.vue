@@ -78,10 +78,10 @@
         <!--- Golf Club Rental -->
         <div>
             <GolfClub 
-                title="GOLF CLUBS"
-                subtitle="RENTAL AVAILABLE"
-                description="Our rental clubs include top-of-the-line brands such as Srixon and XXIO, ensuring a high-quality golfing experience. We offer both men's and women's sets, as well as left-handed and right-handed options."
-                image="/banner/golf-rates.webp"/>
+            title="GOLF CLUBS"
+            subtitle="RENTAL AVAILABLE"
+            description="Our rental clubs include top-of-the-line brands such as Srixon and XXIO, ensuring a high-quality golfing experience. We offer both men's and women's sets, as well as left-handed and right-handed options."
+            image="/banner/golf-rates.webp"/>
         </div>
 
         <!--- CADDIE SERVICE -->
