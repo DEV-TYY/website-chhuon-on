@@ -164,7 +164,7 @@
           >
             <!-- EMAIL LINK -->
             <a
-               cv-if="item.url && item.url.startsWith('mailto:')"
+               v-if="item.url && item.url.startsWith('mailto:')"
               :href="item.url"
               class="uppercase font-roman duration-200 lg:text-[17px] text-[13px] hover:text-amber text-darkCyan"
             >
