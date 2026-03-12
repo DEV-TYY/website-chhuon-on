@@ -162,9 +162,18 @@
             :key="item.name"
             class="relative group"
           >
-            <!-- NORMAL LINK -->
+            <!-- EMAIL LINK -->
+            <a
+               cv-if="item.url && item.url.startsWith('mailto:')"
+              :href="item.url"
+              class="uppercase font-roman duration-200 lg:text-[17px] text-[13px] hover:text-amber text-darkCyan"
+            >
+              {{ item.name }}
+            </a>
+
+            <!-- NORMAL ROUTE -->
             <NuxtLink
-              v-if="item.url"
+              v-else-if="item.url"
               :to="item.url"
               class="uppercase font-roman duration-200 lg:text-[17px] text-[13px] hover:text-amber"
               :class="isActive(item.url) ? 'text-amber' : 'text-darkCyan'"

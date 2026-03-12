@@ -137,10 +137,10 @@
                                     </div>
                                 </div>
 
-                                <a to="/news&events/hole-in-one-record"
+                                <NuxtLink to="/news-events/hole-in-one-record"
                                     class="block font-roman text-amber rounded-md transition-colors duration-200">
                                     HOLE IN ONE RECORD
-                                </a>
+                                </NuxtLink>
                             </div>
 
                             </li>
@@ -152,10 +152,10 @@
                     </li>
 
                     <li class="mb-3">
-                        <a class="lg:text-xl text-lg font-roman hover:text-white"
-                        href="mailto:reservations@chhunon-golfresort.com">
-                        BOOK YOUR TEE TIME
-                        </a>
+                        <NuxtLink class="lg:text-xl text-lg font-roman hover:text-white"
+                            to="mailto:reservations@chhunon-golfresort.com">
+                            BOOK YOUR TEE TIME
+                        </NuxtLink>
                     </li>
 
                 </ul>
